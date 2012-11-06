@@ -1,0 +1,37 @@
+\ProvidesPackage{agd-evaluation}
+
+\usepackage[american]{babel}
+\usepackage[babel]{csquotes}
+
+\usepackage{hyperref}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+
+\usepackage{enumitem}
+
+\newcommand{\thecourse}[1]{\csname course@#1\endcsname}
+
+\newcommand{\coursenum}[1]{\gdef\course@num{#1}} %Course number
+\newcommand{\coursename}[1]{\gdef\course@name{#1}} %Course name
+\newcommand{\courseterm}[1]{\gdef\course@term{#1}} %Course term
+\newcommand{\courseinst}[1]{\gdef\course@inst{#1}} %Course institution
+
+\renewcommand{\@maketitle}{%
+  \newpage
+  \null
+  \vspace{\droptitle}
+  \begin{flushleft}
+    \textsc{\normalsize \thecourse{inst}} \\[\baselineskip]
+    \textbf{\Huge \thecourse{num}: \thecourse{name}} \\[\baselineskip]
+    \textbf{\Huge Course Questionaire}
+  \end{flushleft}
+
+  \vskip .5in
+}
+
+\newenvironment{questions}{\begin{enumerate}[labelindent=\parindent, leftmargin=*, label={Q\arabic*:}, noitemsep]}{\end{enumerate}}
+
+\newcommand{\question}[2][2in]{\item {#2} \vspace{#1}}
