@@ -11,6 +11,8 @@
 \usepackage{mathpazo}
 
 \usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{pbox}
 
 \newcommand{\thecourse}[1]{\csname course@#1\endcsname}
 
@@ -23,21 +25,35 @@
 \newcommand{\instructions}[1]{\gdef\theinstructions{#1}} %Instructions for the evaluation
 
 \renewcommand{\@maketitle}{%
-  \newpage
-  \null
   \vspace{\droptitle}
   \begin{flushleft}
     \textsc{\normalsize \thecourse{inst}} \\[\baselineskip]
     \textsc{\normalsize \thecourse{place}} \\[\baselineskip]
     \textbf{\Huge \thecourse{num}: \thecourse{name}} \\[\baselineskip]
-    \textbf{\Huge Course Questionaire}
+    \textbf{\Huge Course Questionaire} \\[\baselineskip]
     {\normalsize \theinstructions}
   \end{flushleft}
 }
 
-\newenvironment{questions}{\begin{enumerate}[labelindent=\parindent, leftmargin=*, label={Q\arabic*:}, noitemsep]}{\end{enumerate}}
+\newenvironment{saquestions}{\begin{enumerate}[labelindent=\parindent, leftmargin=*, label={Q\arabic*:}, noitemsep]}{\end{enumerate}}
 
-\newcommand{\question}[2][2in]{\item {#2} \vspace{#1}}
+\newcommand{\saquestion}[2][2in]{\item {#2} \vspace{#1}}
+
+\newcommand{\rankinst}[1]{\pbox{1cm}{\centering \tiny #1}}
+
+\newenvironment{rankquestions}{
+  For each of the following, please circle the response that best reflects your feelings about the course.
+  
+  \tabularx{\columnwidth}{X c c c c c}
+  & \rankinst{Strongly disagree} & \rankinst{Weakly disagree} & \rankinst{Neutral} & \rankinst{Weakly agree} & \rankinst{Strongly agree} \\
+  }
+  {
+    \endtabularx
+  }
+
+\newcounter{rank}
+\setcounter{rank}{1}
+\newcommand{\rankquestion}[1]{R\arabic{rank}\addtocounter{rank}{1}: {#1} & 1 & 2 & 3 & 4 & 5 \\}
 
 \pagestyle{empty}
 \aliaspagestyle{title}{empty}
