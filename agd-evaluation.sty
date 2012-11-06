@@ -30,10 +30,11 @@
     \textbf{\Huge \thecourse{num}: \thecourse{name}} \\[\baselineskip]
     \textbf{\Huge Course Questionaire}
   \end{flushleft}
-
-  \vskip .5in
 }
 
 \newenvironment{questions}{\begin{enumerate}[labelindent=\parindent, leftmargin=*, label={Q\arabic*:}, noitemsep]}{\end{enumerate}}
 
 \newcommand{\question}[2][2in]{\item {#2} \vspace{#1}}
+
+\pagestyle{empty}
+\aliaspagestyle{title}{empty}
