@@ -20,6 +20,8 @@
 \newcommand{\courseplace}[1]{\gdef\course@place{#1}} %Course institution
 \newcommand{\courseinst}[1]{\gdef\course@inst{#1}} %Course instructor
 
+\newcommand{\instructions}[1]{\gdef\theinstructions{#1}} %Instructions for the evaluation
+
 \renewcommand{\@maketitle}{%
   \newpage
   \null
@@ -29,6 +31,7 @@
     \textsc{\normalsize \thecourse{place}} \\[\baselineskip]
     \textbf{\Huge \thecourse{num}: \thecourse{name}} \\[\baselineskip]
     \textbf{\Huge Course Questionaire}
+    {\normalsize \theinstructions}
   \end{flushleft}
 }
 
