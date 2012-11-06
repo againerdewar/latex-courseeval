@@ -17,7 +17,8 @@
 \newcommand{\coursenum}[1]{\gdef\course@num{#1}} %Course number
 \newcommand{\coursename}[1]{\gdef\course@name{#1}} %Course name
 \newcommand{\courseterm}[1]{\gdef\course@term{#1}} %Course term
-\newcommand{\courseinst}[1]{\gdef\course@inst{#1}} %Course institution
+\newcommand{\courseplace}[1]{\gdef\course@place{#1}} %Course institution
+\newcommand{\courseinst}[1]{\gdef\course@inst{#1}} %Course instructor
 
 \renewcommand{\@maketitle}{%
   \newpage
@@ -25,6 +26,7 @@
   \vspace{\droptitle}
   \begin{flushleft}
     \textsc{\normalsize \thecourse{inst}} \\[\baselineskip]
+    \textsc{\normalsize \thecourse{place}} \\[\baselineskip]
     \textbf{\Huge \thecourse{num}: \thecourse{name}} \\[\baselineskip]
     \textbf{\Huge Course Questionaire}
   \end{flushleft}
